@@ -6,6 +6,7 @@ print("Election Results")
 print("---------------------------")
 
 Polldata = os.path.join('Polling_Data.csv')
+PollResults = os.path.join('PollResults.txt')
 
 Voters = []
 Khan_total = 0
@@ -60,3 +61,28 @@ elif otooley_total > Khan_total and otooley_total > li_total and otooley_total >
 else:
     print("No one wins")
 
+
+with open(PollResults,"w") as txt_file:
+
+# Write methods to print to Elections_Results_Summary 
+    txt_file.write("Election Results")
+    txt_file.write("\n")
+    txt_file.write("------------------------------")
+    txt_file.write("\n")
+    txt_file.write("Total Votes: " + str(TotalVoters))
+    txt_file.write("\n")
+    txt_file.write("------------------------------")
+    txt_file.write("\n")
+    txt_file.write(f"Khan: {KP:.3f}% ({Khan_total})")
+    txt_file.write("\n")
+    txt_file.write(f"Correy: {CP:.3f}% ({Correy_total})")
+    txt_file.write("\n")
+    txt_file.write(f"Li: {LP:.3f}% ({li_total})")
+    txt_file.write("\n")
+    txt_file.write(f"O'Tooley: {OP:.3f}% ({otooley_total})")
+    txt_file.write("\n")
+    txt_file.write(f"----------------------------")
+    txt_file.write("\n")
+    txt_file.write("Winner: Khan ")
+    txt_file.write("\n")
+    txt_file.write("------------------------------")
